@@ -1,7 +1,7 @@
 // thêm sản phẩm vào giỏ hàng
 const addToCart = (idPro) => {
-  let userLogin = JSON.parse(sessionStorage.getItem("userlogin"));
-  if (userLogin == null) {
+  let usernameLogin = JSON.parse(sessionStorage.getItem("usernameLogin"));
+  if (usernameLogin == null) {
     alert("Vui lòng đăng nhập đề xem giở hàng");
     location.href="/user/login.html";
   }
@@ -9,12 +9,12 @@ const addToCart = (idPro) => {
   let quantity = +document.querySelector(".pro-qty > input").value;
 
   // nếu sp đã tồn tại trong giỏ hàng thì tăng số lượng
-  let indexCartItem = userLogin.cart.findIndex(
+  let indexCartItem = usernameLogin.cart.findIndex(
     (cartIt) => cartIt.idProduct == idPro
   );
   if (indexCartItem > -1) {
     // đã tồn tại
-    userLogin.cart[indexCartItem].quantity += quantity;
+    usernameLogin.cart[indexCartItem].quantity += quantity;
   } else {
     // chưa tồn tại , thêm mới
     let products = JSON.parse(localStorage.getItem("products"));
@@ -23,8 +23,7 @@ const addToCart = (idPro) => {
       quantity,
       price: products.unit_price
     };
-    userLogin.cart.push(cartItem);
+    usernameLogin.cart.push(cartItem);
   }
-  sessionStorage.setItem("userlogin",JSON.stringify(userLogin));
-  location.href = "/user/cart.html";
+  sessionStorage.setItem("usernameLogin",JSON.stringify(usernameLogin));
 };

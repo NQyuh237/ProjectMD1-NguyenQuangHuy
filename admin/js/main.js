@@ -1,8 +1,11 @@
-let userLogin = JSON.parse(sessionStorage.getItem("userlogin"));
-if (userLogin != null && userLogin.role =="ADMIN"){
-    document.getElementById("username").innerText = userLogin.username;
-    document.getElementById("avatar").src =`../user/img/${userLogin.avatar}`;
-}else{
-    // nếu không có quyền
-    location.href = "/admin/403.html"
+
+let userLogin = JSON.parse(localStorage.getItem("usernameLogin"));
+
+if (userLogin && userLogin.role == "ADMIN") {
+    console.log(userLogin);
+    document.getElementById("username").innerHTML = userLogin.email;
 }
+// } else {
+//     // nếu không có quyền
+//     location.href = "/403.html"
+// }

@@ -18,29 +18,30 @@ const showOrders = () => {
       let stringDetail = ""
       value.cart.forEach(element => {
         const product = products.find(e => e.product_id == element.idProduct)
+        console.log("==> product: ", product);
         stringDetail +=
           `
             <li>
-              <img width="50px" src="${product.image[0]}" alt="img">  |
-              <span>price: ${product.unit_price} $</span>  |
-              <span> quantity: ${element.quantity} </span>
+              <img width="50px" src="${product.image[0]}" alt="img">;
+              <span>price: ${product.unit_price} $</span>;
+              <span> quantity: ${element.quantity} </span>;
             </li>
           `
       });
       return str +
         `<tr>
-    <td>${value.id}</td>
-    <td>${value.createAt}</td>
-    <td>
-      <ul style="list-style: none">${stringDetail}</ul>
-    </td>
-    <td>${value.total} $</td>
-    <td>${handleStatusCodeOrder(value.status)}</td>
-    <td>
-         <button class="btn btn-success" onclick="accept(${value.id})">Confirm</button>
-         <button class="btn btn-danger" onclick="refuse(${value.id})">Refuse</button>
-    </td>  
-</tr>`
+          <td>${value.id}</td>
+          <td>${value.createAt}</td>
+          <td>
+            <ul style="list-style: none">${stringDetail}</ul>
+          </td>
+          <td>${value.total} $</td>
+          <td>${handleStatusCodeOrder(value.status)}</td>
+          <td>
+              <button class="btn btn-success" onclick="accept(${value.id})">Confirm</button>
+              <button class="btn btn-danger" onclick="refuse(${value.id})">Refuse</button>
+          </td>  
+        </tr>`
     }
     ,
     ""

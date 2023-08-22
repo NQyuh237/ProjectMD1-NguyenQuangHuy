@@ -1,8 +1,4 @@
 let id = sessionStorage.getItem("pro_id");
-// let href = location.href;
-// console.log(href.split("=")[1]);
-// let id = href.split("id=")[1]
-
 
 if(id){
     let products = JSON.parse(localStorage.getItem("products"))

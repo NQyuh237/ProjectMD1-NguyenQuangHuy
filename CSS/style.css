@@ -53,7 +53,7 @@ nav {
 
 nav ul {
     display: flex;
-    list-style-type: none;
+    list-style-type: none;    
 }
 
 nav ul li {
@@ -109,11 +109,12 @@ main {
 }
 
 section {
-    margin-bottom: 20px;
+    margin-bottom: 135px;
     text-align: center;
 }
 
 h3 {
+    margin-top: 20px !important;
     text-align: left;
     font-family: Arial, sans-serif;
     font-size: 24px;
@@ -172,7 +173,7 @@ footer div {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(to right, #2ae5e8 0%, #aa00ad 100%);
+    background-color: lightpink;
     color: white;
 }
 
@@ -201,6 +202,6 @@ a {
 tr,
 td,
 a:hover {
-    color: #2ae5e8;
+    color: #000000;
     text-decoration: none;
 }

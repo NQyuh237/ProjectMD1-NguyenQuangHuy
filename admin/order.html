@@ -19,8 +19,6 @@
   <title>market</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous" />
-
-  <link href="css/app.css" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet" />
 </head>
 
@@ -56,9 +54,23 @@
       </div>
     </div>
     <div class="right">
+      <nav class="navbar navbar-expand navbar-light navbar-bg">
+        <div class="navbar-collapse collapse">
+          <ul class="navbar-nav navbar-align">
+            <a class="nav-link dropdown-toggle d-none d-sm-inline-block" href="#" data-bs-toggle="dropdown"
+              style="margin-left: 750px;">
+              <img src="img/avatars/avt.png" width="30px" class="avatar img-fluid rounded me-1" alt="Charles Hall" />
+              <span class="text-dark" id="username">Adminz</span>
+            </a>
+            <div class="dropdown-menu dropdown-menu-end">
+              <a class="dropdown-item" href="../login/login.html">Log out</a>
+            </div>
+            </li>
+          </ul>
+        </div>
+      </nav>
       <div class="wrapper">
         <div class="main">
-
           <main class="content">
             <div class="container-fluid p-0">
               <div class="card">
@@ -90,17 +102,17 @@
                       </tr>
                     </thead>
                     <tbody id="orders">
-                      <tr>
-                                <td>1</td>
-                                <td>
+                      <!-- <tr>
+                        <td>1</td>
+                        <td>
 
-                                </td>
-                                <td></td>
-                                <td></td>
-                                <td>
-                                    <button type="button" class="btn btn-warning">Detail</button>
-                                </td>  
-                            </tr>
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                          <button type="button" class="btn btn-warning">Detail</button>
+                        </td>
+                      </tr> -->
                     </tbody>
                   </table>
                 </div>
@@ -148,9 +160,9 @@
         </div>
       </div>
       <!-- modaldetail -->
-     
-      <script src="js/app.js"></script>
-      <script src="js/order.js"></script>
+      <script src="./js/main.js"></script>
+      <script src="./js/app.js"></script>
+      <script src="./js/order.js"></script>
 </body>
 
 </html>

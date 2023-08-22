@@ -180,7 +180,7 @@ footer div {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(to right, #2ae5e8 0%, #aa00ad 100%);
+    background-color: lightpink;
     color: white;
 }
 

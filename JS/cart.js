@@ -1,8 +1,4 @@
-let userLogin = JSON.parse(sessionStorage.getItem("userlogin"));
-// if (userLogin == null) {
-//   alert("Vui lòng đăng nhập đề xem giở hàng");
-//   location.href = "/user/login.html";
-// }
+let usernameLogin = JSON.parse(localStorage.getItem("usernameLogin"));
 // danh sách sp
 let products = JSON.parse(localStorage.getItem("products")) || [];
 
@@ -10,10 +6,10 @@ let products = JSON.parse(localStorage.getItem("products")) || [];
 let total = 0;
 const showCart = () => {
 
-  let userLogin = JSON.parse(localStorage.getItem("usernameLogin"));
+  let usernameLogin = JSON.parse(localStorage.getItem("usernameLogin"));
 
 
-  let listCartItem = userLogin.cart.reduce((string, ct, index) => {
+  let listCartItem = usernameLogin.cart.reduce((string, ct, index) => {
     // lấy thông tin sp theo id
     let product = products.find((p) => p.product_id == ct.idProduct);
 
@@ -45,18 +41,18 @@ const showCart = () => {
 showCart();
 
 function changQuantity(event, id) {
-  const userLogin = JSON.parse(localStorage.getItem('usernameLogin'))
-  const index = userLogin.cart.findIndex(e => e.idProduct == id)
-  userLogin.cart[index].quantity = event.target.value
-  localStorage.setItem("usernameLogin", JSON.stringify(userLogin))
+  const usernameLogin = JSON.parse(localStorage.getItem('usernameLogin'))
+  const index = usernameLogin.cart.findIndex(e => e.idProduct == id)
+  usernameLogin.cart[index].quantity = event.target.value
+  localStorage.setItem("usernameLogin", JSON.stringify(usernameLogin))
   showCart()
 }
 // XỬ lí xóa
 const handleDelete = (idPro) => {
   if (confirm("Are you sure you want to delete")) {
-    let indexDelete = userLogin.cart.findIndex(ct => ct.idProduct == idPro)
-    userLogin.cart.splice(indexDelete, 1);
-    sessionStorage.setItem("userlogin", JSON.stringify(userLogin))
+    let indexDelete = usernameLogin.cart.findIndex(ct => ct.idProduct == idPro)
+    usernameLogin.cart.splice(indexDelete, 1);
+    sessionStorage.setItem("usernameLogin", JSON.stringify(usernameLogin))
     showCart();
   }
 }
@@ -66,11 +62,11 @@ const handleUpdate = (e, idPro) => {
   // lấy ra số lượng cần cập nhật
   let quantity = +document.querySelector(`#quantity_${idPro}`).value
   // Láy ra vị trí cần cập nhật
-  let indexCartItem = userLogin.cart.findIndex(
+  let indexCartItem = usernameLogin.cart.findIndex(
     (cartIt) => cartIt.idProduct == idPro
   );
-  userLogin.cart[indexCartItem].quantity = quantity;
-  sessionStorage.setItem("userlogin", JSON.stringify(userLogin))
+  usernameLogin.cart[indexCartItem].quantity = quantity;
+  sessionStorage.setItem("usernameLogin", JSON.stringify(usernameLogin))
   showCart();
 }
 
@@ -78,23 +74,23 @@ let orders = JSON.parse(localStorage.getItem("orders")) || []
 
 
 function handleCheckOut() {
-  const userLogin = JSON.parse(localStorage.getItem('usernameLogin'))
-  const orders = JSON.parse(localStorage.getItem("orders"))
+  const usernameLogin = JSON.parse(localStorage.getItem('usernameLogin'))
+  const orders = JSON.parse(localStorage.getItem("orders")) || [];
   orders.push({
     id: Math.floor(100 + Math.random() * 899),
-    userId: userLogin.user_id,
-    cart: userLogin.cart,
+    userId: usernameLogin.user_id,
+    cart: usernameLogin.cart,
     createAt: new Date(),
     status: 1,
     note: document.getElementById("note").value,
     total
   })
 
-  userLogin.cart = []
+  usernameLogin.cart = []
 
   document.getElementById("note").value = ""
 
-  localStorage.setItem('usernameLogin', JSON.stringify(userLogin))
+  localStorage.setItem('usernameLogin', JSON.stringify(usernameLogin))
   localStorage.setItem('orders', JSON.stringify(orders))
   showCart()
 }

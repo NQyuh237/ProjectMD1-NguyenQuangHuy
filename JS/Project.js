@@ -3,12 +3,12 @@
 function showInfoProduct() {
     const productDetail = JSON.parse(localStorage.getItem('product_detail'));
 
-    document.getElementById("name").innerHTML = productDetail.name
+    // document.getElementById("name").innerHTML = productDetail.name
     document.getElementById("description").innerHTML = productDetail.description
     document.getElementById("image").src = `${productDetail.image[0]}`
 }
 
-showInfoProduct()
+// showInfoProduct()
 
 function addToCart() {
     const userLogin = JSON.parse(localStorage.getItem('usernameLogin'))
@@ -25,6 +25,6 @@ function addToCart() {
         localStorage.setItem("usernameLogin", JSON.stringify(userLogin))
 
     } else {
-        alert("Da them sp nay roi !")
+        alert("Sản phẩm phẩm đã thêm được vào giỏ hàng.")
     }
 }
